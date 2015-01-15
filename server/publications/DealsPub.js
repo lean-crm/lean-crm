@@ -1,3 +1,3 @@
 Meteor.publish(null, function () {
-  return Companies.find({});
+  return Deals.find({});
 });
