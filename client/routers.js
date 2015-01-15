@@ -10,7 +10,28 @@ Router.route('/', {
 });
 
 Router.route('/companies', {
-  template: 'companies.companies',
+  template: 'companies.companiesList',
+  action: function () {
+    this.render();
+  }
+});
+
+Router.route('/persons', {
+  template: 'persons.personsList',
+  action: function () {
+    this.render();
+  }
+});
+
+Router.route('/deals', {
+  template: 'deals.dealsList',
+  action: function () {
+    this.render();
+  }
+});
+
+Router.route('/tasks', {
+  template: 'tasks.tasksList',
   action: function () {
     this.render();
   }

@@ -1,4 +1,4 @@
-Template['companies.companies'].helpers({
+Template['companies.companiesList'].helpers({
   items: function() {
     return Companies.find({});
   }
