@@ -1,0 +1,27 @@
+<template name="adminUsers">
+
+  {{#contentFor "title"}}
+    / Users
+  {{/contentFor}}
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Emails</th>
+        <th>Roels</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users}}
+        <tr>
+          <td>{{_id}}</td>
+          <td>{{#each emails}}{{address}} {{/each}}</td>
+          <td>{{#each roles}}{{this}} {{/each}}</td>
+          <td><a href="{{pathFor route='admin.userEdit'}}">edit</a></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
