@@ -1,28 +1,25 @@
 Tasks = new Mongo.Collection('Tasks');
 
 
-var status = [];
-_.each(Meteor.App.TASK_STATUS, function(value) {
-  status.push(value);
-});
-
 
 Tasks.attachSchema(new SimpleSchema({
   reference_id: {
     type: String
   },
   assignee_id: {
-    type: String
+    type: String,
+    optional: true
   },
   status: {
     type: String,
     defaultValue: Meteor.App.TASK_STATUS.OPENED,
-    allowedValues: status
+    allowedValues: taskStatuses
   },
   mission: {
     type: String
   },
   deferred: {
-    type: Date
+    type: Date,
+    optional: true
   }
 }));

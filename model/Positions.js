@@ -4,10 +4,10 @@ var positionsSchema = new SimpleSchema([contactsSchema, {
   company_id: {
     type: String
   },
-  contact_id: {
+  person_id: {
     type: String
   },
-  position: {
+  name: {
     type: String,
     optional: true
   }

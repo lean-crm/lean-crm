@@ -1,9 +1,5 @@
 Deals = new Mongo.Collection('Deals');
 
-var status = [];
-_.each(Meteor.App.DEAL_STATUS, function(value) {
-  status.push(value);
-});
 
 var activityTypes = [];
 _.each(Meteor.App.ACTIVITY_TYPES, function(value) {
@@ -24,10 +20,27 @@ Deals.attachSchema(new SimpleSchema({
   name: {
     type: String
   },
+  description: {
+    type: String
+  },
   status: {
     type: String,
     defaultValue: Meteor.App.DEAL_STATUS.OPENED,
-    allowedValues: status
+    allowedValues: dealStatuses
+  },
+  company_ids: {
+    type: Array,
+    optional: true
+  },
+  "company_ids.$": {
+    type: String
+  },
+  person_ids: {
+    type: Array,
+    optional: true
+  },
+  "person_ids.$": {
+    type: String
   },
   activities: {
     type: [activitySchema],
