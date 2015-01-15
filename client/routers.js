@@ -9,6 +9,13 @@ Router.route('/', {
   }
 });
 
+Router.route('/companies', {
+  template: 'companies.companies',
+  action: function () {
+    this.render();
+  }
+});
+
 
 Router.route('/admin/users', {
   name: 'admin.users',
