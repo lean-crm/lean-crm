@@ -14,7 +14,7 @@ Meteor.startup(function() {
   // remove data
   Tasks.remove({});
   Deals.remove({});
-  Positions.remove({});
+  JobPositions.remove({});
   Persons.remove({});
   Companies.remove({});
 
@@ -53,7 +53,7 @@ Meteor.startup(function() {
     persons.push(personId);
 
 
-    Positions.insert({
+    JobPositions.insert({
       company_id: _.sample(companies),
       person_id: personId,
       name: Fake.fromArray(['CTO', 'CEO', 'Marketing director', 'Director of directors', 'Superman'])

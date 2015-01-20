@@ -1,3 +1,3 @@
 Meteor.publish(null, function () {
-  return Positions.find({});
+  return JobPositions.find({});
 });
