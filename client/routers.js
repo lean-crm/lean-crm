@@ -34,9 +34,9 @@ Router.route('/persons', {
   }
 });
 
-Router.route('/person/edit/:_id', {
-  name: 'persons.edit',
-  template: 'persons.edit',
+Router.route('/person/:_id', {
+  name: 'persons.detail',
+  template: 'persons.detail',
   data: function() {
     return {
       person: Persons.findOne({_id: this.params._id})
