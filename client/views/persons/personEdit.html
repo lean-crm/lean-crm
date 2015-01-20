@@ -1,0 +1,17 @@
+<template name="persons.edit">
+    <div class="innerAll">
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6">
+                <div class="widget">
+                    <div class="widget-head">
+                        <h2 class="heading">{{name}}</h2>
+                    </div>
+                    <div class="widget-body">
+                        {{> quickForm collection="Persons" doc=this id="person-edit" type="update"
+                        fields="name,description,emails,phones"}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

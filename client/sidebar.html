@@ -1,0 +1,39 @@
+<template name="sidebar">
+    <!-- Sidebar Menu -->
+    <div id="menu" class="hidden-xs hidden-print">
+
+        <!-- Brand -->
+        <a href="../index.html?lang=en" class="appbrand">Lean CRM</a>
+
+        <!-- Scrollable menu wrapper with Maximum height -->
+        <div class="slim-scroll" data-scroll-height="800px">
+
+            <!-- Sidebar Profile -->
+            <span class="profile center">
+              <a href="../my_account_advanced.html?lang=en"><img
+                      src="../../assets/images/avatar-36x36.jpg" alt="Avatar"/></a>
+            </span>
+            <!-- // Sidebar Profile END -->
+
+            <ul>
+                <li class="dropdown dd-1 {{isActiveRoute regex='^companies'}}">
+                    <a href="{{pathFor route='companies.list'}}">
+                        <i class="fa fa-bank"></i> Companies <span class="fa fa-chevron-right"></span>
+                    </a>
+                </li>
+                <li class="dropdown dd-1 {{isActiveRoute regex='^persons'}}">
+                    <a href="{{pathFor route='persons.list'}}">
+                        <i class="fa fa-users"></i> Users <span class="fa fa-chevron-right"></span>
+                    </a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+
+
+        </div>
+        <!-- // Scrollable Menu wrapper with Maximum Height END -->
+
+    </div>
+    <!-- // Sidebar Menu END -->
+
+</template>

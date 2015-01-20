@@ -10,14 +10,27 @@ Router.route('/', {
 });
 
 Router.route('/companies', {
-  template: 'companies.companiesList',
+  name: 'companies.list',
+  template: 'companies.list',
   action: function () {
     this.render();
   }
 });
 
 Router.route('/persons', {
-  template: 'persons.personsList',
+  name: 'persons.list',
+  template: 'persons.list',
+  action: function () {
+    this.render();
+  }
+});
+
+Router.route('/person/edit/:_id', {
+  name: 'persons.edit',
+  template: 'persons.edit',
+  data: function() {
+    return Persons.findOne({_id: this.params._id});
+  },
   action: function () {
     this.render();
   }

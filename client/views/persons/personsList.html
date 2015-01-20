@@ -1,5 +1,50 @@
-<template name="persons.personsList">
-  {{#each items}}
-    {{_id}} - {{name}}<br/><br/><br/>
-  {{/each}}
+<template name="persons.list">
+
+  <div class="innerAll">
+
+    <div class="innerB">
+      <h3 class="margin-none pull-left">Persons</h3>
+      <div class="clearfix"></div>
+    </div>
+
+
+    <div class="widget">
+      <div class="widget-body padding-none">
+
+        <table class="table margin-none">
+
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+
+
+          <tbody>
+          {{#each items}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{description}}</td>
+            <td>{{join emails}}</td>
+            <td>{{join phones}}</td>
+            <td>{{_id}}</td>
+            <td class="action">
+              <a href="{{pathFor route='persons.edit'}}" class="btn btn-xs btn-success">edit</a>
+            </td>
+          </tr>
+          {{/each}}
+
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+
+  </div>
 </template>

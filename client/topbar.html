@@ -1,0 +1,79 @@
+<template name="topbar">
+    <!-- Top navbar -->
+    <div class="navbar main">
+
+        <!-- Menu Toggle Button -->
+        <button type="button"
+                class="btn btn-navbar navbar-toggle pull-left">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!-- // Menu Toggle Button END -->
+
+        <!-- Full Top Style -->
+        <ul class="topnav pull-left">
+            <li class="dropdown dd-1">
+                <a href="../index.html?lang=en"
+                   data-toggle="dropdown"
+                   class="glyphicons dashboard"><i></i> Dashboard
+                    <span class="caret"></span></a>
+            </li>
+        </ul>
+        <!-- // Full Top Style END -->
+
+        <!-- Top Menu Right -->
+        <ul class="topnav pull-right hidden-xs hidden-sm">
+
+            <!-- Profile / Logout menu -->
+            <li class="account dropdown dd-1">
+                <a data-toggle="dropdown"
+                   href="../my_account_advanced.html?lang=en"
+                   class="glyphicons logout lock"><span
+                        class="hidden-tablet hidden-xs hidden-desktop-1">mosaicpro</span><i></i></a>
+                <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a href="../my_account_advanced.html?lang=en"
+                           class="glyphicons cogwheel">Settings<i></i></a>
+                    </li>
+                    <li>
+                        <a href="../my_account_advanced.html?lang=en"
+                           class="glyphicons camera">My Photos<i></i></a>
+                    </li>
+                    <li class="profile">
+        <span>
+          <span class="heading">Profile <a
+                  href="../my_account_advanced.html?lang=en"
+                  class="pull-right">edit</a></span>
+          <span class="media display-block margin-none">
+            <span class="pull-left display-block thumb">
+              <img src="../../assets/images/people/35/2.jpg" alt="">
+            </span>
+            <span class="media-body display-block">
+              <a href="../my_account_advanced.html?lang=en">Mosaic Pro</a>
+              <small>contact@mosaicpro.biz</small>
+            </span>
+          </span>
+        </span>
+                    </li>
+                    <li class="innerTB half">
+        <span>
+          <a class="btn btn-default btn-xs pull-right"
+             href="../login.html?lang=en">Sign Out</a>
+          <span class="clearfix"></span>
+        </span>
+                    </li>
+                </ul>
+            </li>
+            <!-- // Profile / Logout menu END -->
+
+        </ul>
+        <!-- // Top Menu Right END -->
+
+
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- Top navbar END -->
+
+</template>

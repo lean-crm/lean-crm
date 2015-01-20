@@ -44,6 +44,10 @@ Meteor.startup(function() {
       name: randomUser.fullname,
       emails: [randomUser.email]
     };
+    if(_.random(0,2) < 2) {
+      var randomUser2 = Fake.user();
+      entity.emails.push(randomUser2.email);
+    }
 
     personId = Persons.insert(entity);
     persons.push(personId);

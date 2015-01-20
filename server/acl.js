@@ -11,8 +11,8 @@ Security.defineMethod("ifCanManageUsers", {
 });
 
 
-Users.permit(['insert', 'update', 'remove']).ifCanManageUsers().apply();
+//Users.permit(['insert', 'update', 'remove']).ifCanManageUsers().apply();
 
 
-
+Persons.permit(['insert', 'update', 'remove']).ifLoggedIn().apply();
 

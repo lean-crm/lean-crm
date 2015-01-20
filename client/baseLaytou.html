@@ -1,12 +1,27 @@
 <template name="baseLayout">
-  <header>
-    <h1>{{title}}</h1>
-  </header>
+    <!-- Main Container Fluid -->
+    <div class="container-fluid fluid menu-left">
 
-  <article>
-    {{> yield}}
-  </article>
+        <!-- Sidebar menu & content wrapper -->
+        <div id="wrapper">
 
-  halloooo
+            {{> sidebar}}
+
+            <!-- Content -->
+            <div id="content">
+
+                {{> topbar}}
+
+                {{> yield}}
+
+            </div>
+            <!-- // Content END -->
+
+        </div>
+        <div class="clearfix"></div>
+        <!-- // Sidebar menu & content wrapper END -->
+
+    </div>
+    <!-- // Main Container Fluid END -->
 
 </template>
