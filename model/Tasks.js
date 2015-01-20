@@ -1,4 +1,4 @@
-Tasks = new Mongo.Collection('Tasks');
+Tasks = new Mongo.Collection('tasks');
 
 
 

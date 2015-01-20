@@ -1,4 +1,4 @@
-Persons = new Mongo.Collection('Persons');
+Persons = new Mongo.Collection('persons');
 
 var personsSchema = new SimpleSchema([contactsSchema, {
   name: {

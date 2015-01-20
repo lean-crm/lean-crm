@@ -1,4 +1,4 @@
-Positions = new Mongo.Collection('Positions');
+Positions = new Mongo.Collection('positions');
 
 var positionsSchema = new SimpleSchema([contactsSchema, {
   company_id: {

@@ -1,4 +1,4 @@
-Companies = new Mongo.Collection('Companies');
+Companies = new Mongo.Collection('companies');
 
 Companies.attachSchema(new SimpleSchema({
   name: {

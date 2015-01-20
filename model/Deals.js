@@ -1,4 +1,4 @@
-Deals = new Mongo.Collection('Deals');
+Deals = new Mongo.Collection('deals');
 
 
 var activityTypes = [];
