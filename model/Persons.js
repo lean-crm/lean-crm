@@ -10,3 +10,12 @@ var personsSchema = new SimpleSchema([contactsSchema, {
   }
 }]);
 Persons.attachSchema(personsSchema);
+
+
+Persons.helpers({
+
+  getPositions: function() {
+    return JobPositions.find({person_id: this._id});
+  }
+
+});

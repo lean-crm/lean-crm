@@ -1,5 +1,15 @@
 Router.configure({
-  layoutTemplate: 'baseLayout'
+  layoutTemplate: 'baseLayout',
+
+  waitOn: function () {
+    return [
+      Meteor.subscribe('companies'),
+      Meteor.subscribe('persons'),
+      Meteor.subscribe('jobPositions'),
+      Meteor.subscribe('deals'),
+      Meteor.subscribe('tasks')
+    ]
+  }
 });
 
 Router.route('/', {
@@ -29,10 +39,20 @@ Router.route('/person/edit/:_id', {
   name: 'persons.edit',
   template: 'persons.edit',
   data: function() {
-    return Persons.findOne({_id: this.params._id});
+    if (this.ready()) {
+      var person = Persons.findOne({_id: this.params._id});
+      return {
+        person: person,
+        positions: person.getPositions()
+      };
+    }
   },
   action: function () {
-    this.render();
+    if (this.ready()) {
+      this.render();
+    } else {
+      this.render('loading');
+    }
   }
 });
 
