@@ -14,7 +14,6 @@ Meteor.startup(function() {
   // remove data
   Tasks.remove({});
   Deals.remove({});
-  JobPositions.remove({});
   Persons.remove({});
   Companies.remove({});
 
@@ -42,22 +41,20 @@ Meteor.startup(function() {
     var randomUser = Fake.user();
     entity = {
       name: randomUser.fullname,
-      emails: [randomUser.email]
+      emails: [randomUser.email],
+      jobPositions: [
+        {
+          company_id: _.sample(companies),
+          name: Fake.fromArray(['CTO', 'CEO', 'Marketing director', 'Director of directors', 'Superman'])
+        }
+      ]
     };
     if(_.random(0,2) < 2) {
       var randomUser2 = Fake.user();
       entity.emails.push(randomUser2.email);
     }
 
-    personId = Persons.insert(entity);
-    persons.push(personId);
-
-
-    JobPositions.insert({
-      company_id: _.sample(companies),
-      person_id: personId,
-      name: Fake.fromArray(['CTO', 'CEO', 'Marketing director', 'Director of directors', 'Superman'])
-    });
+    persons.push(Persons.insert(entity));
   }
 
   // insert deals

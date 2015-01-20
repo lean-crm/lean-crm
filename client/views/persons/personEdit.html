@@ -7,10 +7,7 @@
                         <h2 class="heading">Professional</h2>
                     </div>
                     <div class="widget-body">
-                        {{#each positions}}
-                            {{> quickForm collection="JobPositions" doc=this id="job-position-edit" type="update"
-                                fields="company,name,description,emails,phones"}}
-                        {{/each}}
+                        asdf
                     </div>
                 </div>
             </div>
@@ -21,7 +18,7 @@
                     </div>
                     <div class="widget-body">
                         {{> quickForm collection="Persons" doc=person id="person-edit" type="update"
-                            fields="name,description,emails,phones"}}
+                            fields="name,description,emails,phones,jobPositions"}}
                     </div>
                 </div>
             </div>
