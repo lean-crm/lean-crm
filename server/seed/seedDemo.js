@@ -68,8 +68,8 @@ Meteor.startup(function() {
         name: Fake.sentence(_.random(2, 7)),
         description: Fake.sentence(_.random(5, 30)),
         status: Fake.fromArray(dealStatuses),
-        company_ids: _.sample(companies, _.random(0, 3)),
-        person_ids: _.sample(persons, _.random(0, 4))
+        companies_ids: _.sample(companies, _.random(0, 3)),
+        persons_ids: _.sample(persons, _.random(0, 4))
       };
 
       deals.push(Deals.insert(entity));

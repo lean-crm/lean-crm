@@ -1,7 +1,42 @@
-<template name="deals.dealsList">
-  http://localhost/quickadmin-v2.1.0/default/admin/support_tickets.html?lang=en
+<template name="deals.list">
 
-  {{#each items}}
-    {{_id}} - {{name}}<br/><br/><br/>
-  {{/each}}
+
+  <div class="innerAll">
+
+    <div class="innerB">
+      <h3 class="margin-none pull-left">Deals</h3>
+      <div class="clearfix"></div>
+    </div>
+
+
+    <div class="widget">
+      <div class="widget-body padding-none">
+
+        {{#each items}}
+        <div class="innerAll border-bottom">
+          <div class="row">
+
+            <div class="col-sm-12">
+              <ul class="media-list">
+                <li class="media">
+                  <div class="media-body">
+                    <span class="label label-success">{{status}}</span>
+                    <a href="{{pathFor route='deals.detail'}}" class="media-heading">{{name}}</a>
+                    <div class="clearfix"></div>
+                    {{description}}
+                    <div class="clearfix"></div>
+                    <small><i class="fa fa-bank"></i> {{#each getCompanies}}{{name}}, {{/each}}</small>
+                    <small><i class="fa fa-users"></i> {{#each getPersons}}{{name}}, {{/each}}</small>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+
+      </div>
+    </div>
+
+  </div>
 </template>

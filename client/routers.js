@@ -48,11 +48,29 @@ Router.route('/person/:_id', {
 });
 
 Router.route('/deals', {
-  template: 'deals.dealsList',
+  name: 'deals.list',
+  template: 'deals.list',
+  data: function() {
+    return {items: Deals.find({})}
+  },
   action: function () {
     this.render();
   }
 });
+
+Router.route('/deal/:_id', {
+  name: 'deals.detail',
+  template: 'deals.detail',
+  data: function() {
+    return {
+      deal: Deals.findOne({_id: this.params._id})
+    };
+  },
+  action: function () {
+    this.render();
+  }
+});
+
 
 Router.route('/tasks', {
   template: 'tasks.tasksList',

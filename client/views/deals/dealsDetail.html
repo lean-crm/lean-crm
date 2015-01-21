@@ -1,0 +1,35 @@
+<template name="deals.detail">
+    <div class="innerAll">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="widget media innerAll">
+                    <div class="pull-left text-center">
+                        <i class="fa-4x fa fa-fw fa-usd"></i>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading margin-none">{{deal.name}}</h2>
+                        <p class="lead">{{deal.description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="widget">
+                    <div class="innerAll half border-bottom">
+                        <a href="" class="btn btn-primary btn-xs pull-right"><i class="fa fa-plus-circle"></i></a>
+                        <h4 class="margin-none padding-none">Persons</h4>
+                    </div>
+
+                    {{#each deal.getPersons}}
+                    <div class="media innerAll half border-bottom margin-none">
+                        <a href="" class="pull-left"><img src="../assets/images/people/35/16.jpg" alt="people" class="img-responsive img-circle"></a>
+                        <div class="media-body">
+                            <h5>{{name}}</h5>
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
