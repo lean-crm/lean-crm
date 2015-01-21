@@ -28,18 +28,11 @@ Deals.attachSchema(new SimpleSchema({
     defaultValue: Meteor.App.DEAL_STATUS.OPENED,
     allowedValues: dealStatuses
   },
-  companies_ids: {
+  jobPositions_ids: {
     type: Array,
     optional: true
   },
-  "companies_ids.$": {
-    type: String
-  },
-  persons_ids: {
-    type: Array,
-    optional: true
-  },
-  "persons_ids.$": {
+  "jobPositions_ids.$": {
     type: String
   },
   activities: {
@@ -50,10 +43,7 @@ Deals.attachSchema(new SimpleSchema({
 
 
 Deals.helpers({
-  getCompanies: function() {
-    return Companies.find({_id: {$in: this.companies_ids}});
-  },
-  getPersons: function() {
-    return Persons.find({_id: {$in: this.persons_ids}});
+  getJobPositions: function() {
+    return JobPositions.find({_id: {$in: this.jobPositions_ids}});
   }
 });

@@ -1,6 +1,6 @@
 JobPositions = new Mongo.Collection('jobPositions');
 
-var jobPositionsSchema = new SimpleSchema([contactsSchema, {
+var jobPositionsSchema = new SimpleSchema([{
   company_id: {
     type: String,
     autoform: {
@@ -23,6 +23,18 @@ var jobPositionsSchema = new SimpleSchema([contactsSchema, {
     type: String,
     optional: true
   }
-}]);
+}, contactsSchema]);
 
 JobPositions.attachSchema(jobPositionsSchema);
+
+
+JobPositions.helpers({
+  getCompanyName: function() {
+    if(!this.company_id) return null;
+    return Companies.findOne(this.company_id).name;
+  },
+  getPersonName: function() {
+    if(!this.person_id) return null;
+    return Persons.findOne(this.person_id).name;
+  }
+});

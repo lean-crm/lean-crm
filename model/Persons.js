@@ -12,12 +12,3 @@ var personsSchema = new SimpleSchema([{
 }, contactsSchema]);
 
 Persons.attachSchema(personsSchema);
-
-
-Persons.helpers({
-
-  getCompanyName: function(jobPosition) {
-    return Companies.findOne(jobPosition.company_id).name;
-  }
-
-});

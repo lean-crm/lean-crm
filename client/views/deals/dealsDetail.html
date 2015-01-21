@@ -19,12 +19,11 @@
                         <h4 class="margin-none padding-none">Persons</h4>
                     </div>
 
-                    {{#each deal.getPersons}}
+                    {{#each deal.getJobPositions}}
                     <div class="media innerAll half border-bottom margin-none">
-                        <a href="" class="pull-left"><img src="../assets/images/people/35/16.jpg" alt="people" class="img-responsive img-circle"></a>
+                        <span class="pull-left"><i class="fa fa-user"></i></span>
                         <div class="media-body">
-                            <h5>{{name}}</h5>
-                            <p>{{description}}</p>
+                            <h5>{{getPersonName}}<small>at {{getCompanyName}}</small></h5>
                         </div>
                     </div>
                     {{/each}}
