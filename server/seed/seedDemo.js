@@ -11,12 +11,12 @@ Meteor.startup(function() {
     };
 
 
-      // remove data
-      Tasks.remove({});
-      Deals.remove({});
-      Persons.remove({});
-      Companies.remove({});
-
+    // remove data
+    Tasks.remove({});
+    Deals.remove({});
+    JobPositions.remove({});
+    Persons.remove({});
+    Companies.remove({});
 
 
 
@@ -36,34 +36,33 @@ Meteor.startup(function() {
       companies.push(Companies.insert(entity));
     }
 
-
     // insert persons
     var personId = null;
     for(var i = 1; i <= 40; i++) {
       var randomUser = Fake.user();
-      var randomUser2 = Fake.user();
       entity = {
         name: randomUser.fullname,
-        emails: [randomUser.email],
-        jobPositions: [
-          {
-            company_id: _.sample(companies),
-            name: Fake.fromArray(['CTO', 'CEO', 'Marketing director', 'Director of directors', 'Superman']),
-            emails: [randomUser2.email]
-          }
-        ]
+        emails: [randomUser.email]
       };
+
       if(_.random(0,2) < 2) {
         var randomUser2 = Fake.user();
         entity.emails.push(randomUser2.email);
       }
 
-      persons.push(Persons.insert(entity));
+      personId = Persons.insert(entity);
+      persons.push(personId);
+
+
+      JobPositions.insert({
+        company_id: _.sample(companies),
+        person_id: personId,
+        name: Fake.fromArray(['CTO', 'CEO', 'Marketing director', 'Director of directors', 'Superman'])
+      });
     }
 
     // insert deals
     for(var i = 1; i <= 15; i++) {
-
       entity = {
         name: Fake.sentence(_.random(2, 7)),
         description: Fake.sentence(_.random(5, 30)),

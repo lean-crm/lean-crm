@@ -5,6 +5,7 @@ Router.configure({
     return [
       Meteor.subscribe('companies'),
       Meteor.subscribe('persons'),
+      Meteor.subscribe('jobPositions'),
       Meteor.subscribe('deals'),
       Meteor.subscribe('tasks')
     ]
@@ -38,12 +39,20 @@ Router.route('/person/:_id', {
   name: 'persons.detail',
   template: 'persons.detail',
   data: function() {
-    return {
-      person: Persons.findOne({_id: this.params._id})
-    };
+    if (this.ready()) {
+      var person = Persons.findOne({_id: this.params._id});
+      return {
+        person: person,
+        positions: person.getPositions()
+      };
+    }
   },
   action: function () {
-    this.render();
+    if (this.ready()) {
+      this.render();
+    } else {
+      this.render('loading');
+    }
   }
 });
 
