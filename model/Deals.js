@@ -1,21 +1,6 @@
 Deals = new Mongo.Collection('deals');
 
 
-var activityTypes = [];
-_.each(Meteor.App.ACTIVITY_TYPES, function(value) {
-  activityTypes.push(value);
-});
-
-var activitySchema = new SimpleSchema({
-  type: {
-    type: String,
-    allowedValues: activityTypes
-  },
-  description: {
-    type: String
-  }
-});
-
 Deals.attachSchema(new SimpleSchema({
   name: {
     type: String
@@ -34,10 +19,6 @@ Deals.attachSchema(new SimpleSchema({
   },
   "jobPositions_ids.$": {
     type: String
-  },
-  activities: {
-    type: [activitySchema],
-    optional: true
   }
 }));
 
@@ -45,5 +26,8 @@ Deals.attachSchema(new SimpleSchema({
 Deals.helpers({
   getJobPositions: function() {
     return JobPositions.find({_id: {$in: this.jobPositions_ids}});
+  },
+  getActivities: function() {
+    return Activities.find({reference: {_id: this._id, collection: 'Deals'}});
   }
 });

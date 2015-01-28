@@ -1,15 +1,10 @@
-<template name="deals.detail">
+<template name="deal_detail">
     <div class="innerAll">
         <div class="row">
             <div class="col-sm-6">
-                <div class="widget media innerAll">
-                    <div class="pull-left text-center">
-                        <i class="fa-4x fa fa-fw fa-usd"></i>
-                    </div>
-                    <div class="media-body">
-                        <h2 class="media-heading margin-none">{{deal.name}}</h2>
-                        <p class="lead">{{deal.description}}</p>
-                    </div>
+                <div class="widget innerAll">
+                    <h2 class="">{{> editableText collection="deals" context=deal field="name"}}</h2>
+                    <p class="lead">{{> editableText collection="deals" context=deal field="description" textarea=true}}</p>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -26,6 +21,18 @@
                             <h5>{{getPersonName}}<small>at {{getCompanyName}}</small></h5>
                         </div>
                     </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="widget">
+                    <div class="innerAll half border-bottom">
+                        <a href="#" class="new-action btn btn-primary btn-xs pull-right"><i class="fa fa-plus-circle"></i></a>
+                        <h4 class="margin-none padding-none">Activities</h4>
+                    </div>
+
+                    {{#each deal.getActivities}}
+                        {{> deals_activity}}
                     {{/each}}
                 </div>
             </div>

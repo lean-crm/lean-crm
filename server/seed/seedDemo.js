@@ -1,5 +1,7 @@
 Meteor.startup(function() {
+
   if(0) {
+    console.log('> seedDemo start...');
     var createTask = function(referenceId) {
       entity = {
         reference_id: referenceId,
@@ -13,17 +15,18 @@ Meteor.startup(function() {
 
     // remove data
     Tasks.remove({});
+    Activities.remove({});
     Deals.remove({});
     JobPositions.remove({});
     Persons.remove({});
     Companies.remove({});
 
 
-
     var entity = {};
 
     var companies = [];
     var persons = [];
+    var jobPositions = [];
     var deals = [];
 
     // insert companies
@@ -54,11 +57,11 @@ Meteor.startup(function() {
       persons.push(personId);
 
 
-      JobPositions.insert({
+      jobPositions.push(JobPositions.insert({
         company_id: _.sample(companies),
         person_id: personId,
         name: Fake.fromArray(['CTO', 'CEO', 'Marketing director', 'Director of directors', 'Superman'])
-      });
+      }));
     }
 
     // insert deals
@@ -67,11 +70,26 @@ Meteor.startup(function() {
         name: Fake.sentence(_.random(2, 7)),
         description: Fake.sentence(_.random(5, 30)),
         status: Fake.fromArray(dealStatuses),
-        companies_ids: _.sample(companies, _.random(0, 3)),
-        persons_ids: _.sample(persons, _.random(0, 4))
+        jobPositions_ids: _.sample(jobPositions, _.random(0, 3))
       };
 
-      deals.push(Deals.insert(entity));
+      var dealId = Deals.insert(entity);
+      deals.push(dealId);
+
+      // add activities
+      var count = _.random(1,7);
+      for(var j = count; j <= 6; j++) {
+        entity = {
+          reference: {
+            _id: dealId,
+            collection: 'Deals'
+          },
+          type: _.sample(activityTypes),
+          description: Fake.sentence(_.random(3, 12))
+        };
+
+        Activities.insert(entity);
+      }
     }
 
 
@@ -83,5 +101,6 @@ Meteor.startup(function() {
       createTask(_.sample(deals));
     }
 
+    console.log('> seedDemo end.');
   }
 });

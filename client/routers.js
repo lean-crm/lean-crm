@@ -7,6 +7,7 @@ Router.configure({
       Meteor.subscribe('persons'),
       Meteor.subscribe('jobPositions'),
       Meteor.subscribe('deals'),
+      Meteor.subscribe('activities'),
       Meteor.subscribe('tasks')
     ]
   }
@@ -57,8 +58,8 @@ Router.route('/person/:_id', {
 });
 
 Router.route('/deals', {
-  name: 'deals.list',
-  template: 'deals.list',
+  name: 'dealsList',
+  template: 'deals_list',
   data: function() {
     return {items: Deals.find({})}
   },
@@ -68,8 +69,8 @@ Router.route('/deals', {
 });
 
 Router.route('/deal/:_id', {
-  name: 'deals.detail',
-  template: 'deals.detail',
+  name: 'dealDetail',
+  template: 'deal_detail',
   data: function() {
     return {
       deal: Deals.findOne({_id: this.params._id})

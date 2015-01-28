@@ -1,0 +1,26 @@
+<template name="deals_activity">
+    <div class="media innerAll border-bottom margin-none">
+        {{#if isEdited}}
+            {{#autoForm collection="Activities" doc=this id=_id type="update" meteormethod="editActivity"}}
+                <div class="row">
+                    <div class="col-sm-2">
+                        {{> afFieldInput name="createdAt"}}
+                        {{> afFieldInput name="type" options="allowed"}}
+                    </div>
+                    <div class="col-sm-8">
+                        {{> afFieldInput name="description" rows=2}}
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            {{/autoForm}}
+        {{else}}
+        <a href="#" class="edit-activity pull-right"><i class="fa fa-pencil"></i></a>
+        <div class="media-body">
+            <span class="label label-success">{{type}}</span>
+            {{description}}
+        </div>
+        {{/if}}
+    </div>
+</template>
